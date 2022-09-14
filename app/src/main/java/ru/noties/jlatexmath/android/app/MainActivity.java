@@ -90,6 +90,8 @@ public class MainActivity extends Activity {
         latex += "\\fbox{\\text{A framed box with \\textdbend}}&\\shadowbox{\\text{A shadowed box}}\\cr";
         latex += "\\doublebox{\\text{A double framed box}}&\\ovalbox{\\text{An oval framed box}}\\cr";
         latex += "\\end{array}";
+        latex += "\\frac{\\ovalbox{asdsdsdsd}}{2}";
+        latex += "\\frac{\\require{enclose}\\enclose{circle}{2232323232}}{\\require{enclose}\\enclose{circle}{2}}";
         LATEX_1 = latex;
     }
 
