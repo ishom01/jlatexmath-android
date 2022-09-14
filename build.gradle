@@ -1,38 +1,24 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
         google()
+        mavenCentral()
     }
-    version = VERSION_NAME
-    group = GROUP
-}
-
-//Solution by the first link
-if (JavaVersion.current().isJava8Compatible()) {
-    allprojects {
-        tasks.withType(Javadoc) {
-            enabled = false
-//            options.addStringOption('Xdoclint:none', '-quiet')
-        }
-    }
-}
-
-if (hasProperty('local')) {
-    if (!hasProperty('LOCAL_MAVEN_URL')) {
-        throw new RuntimeException('Cannot publish to local maven as no such property exists: LOCAL_MAVEN_URL')
-    }
-    ext.RELEASE_REPOSITORY_URL = LOCAL_MAVEN_URL
-    ext.SNAPSHOT_REPOSITORY_URL = LOCAL_MAVEN_URL
 }
 
 wrapper {
@@ -46,26 +32,10 @@ ext {
             'min-sdk'        : 16,
             'target-sdk'     : 28,
             'build-tools'    : '28.0.3',
-            'push-aar-gradle': 'https://raw.githubusercontent.com/noties/gradle-mvn-push/master/gradle-mvn-push-aar.gradle'
     ]
 
     deps = [
             'x-annotations': 'androidx.annotation:annotation:1.1.0',
             'debug'        : 'io.noties:debug:5.1.0'
     ]
-
-    registerArtifact = this.&registerArtifact
-}
-
-def registerArtifact(project) {
-
-    if (hasProperty('release')) {
-        project.apply from: config['push-aar-gradle']
-    }
-
-    project.afterEvaluate {
-        // disable generation of BuildConfig files
-        project.generateDebugBuildConfig.enabled = false
-        project.generateReleaseBuildConfig.enabled = false
-    }
 }

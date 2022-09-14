@@ -27,5 +27,3 @@ dependencies {
         api it['x-annotations']
     }
 }
-
-registerArtifact(this)
