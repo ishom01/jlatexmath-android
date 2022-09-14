@@ -12,3 +12,9 @@ android {
         versionName version
     }
 }
+
+dependencies {
+    deps.with {
+        api it['x-annotations']
+    }
+}
