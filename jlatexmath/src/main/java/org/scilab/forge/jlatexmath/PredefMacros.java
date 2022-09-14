@@ -1312,6 +1312,14 @@ public class PredefMacros {
         return new OvalAtom(new TeXFormula(tp, args[1]).root);
     }
 
+    public static final Atom circlebox_macro(final TeXParser tp, final String[] args) throws ParseException {
+        return new CircleAtom(new TeXFormula(tp, args[2]).root);
+    }
+
+    public static final Atom empty_macro(final TeXParser tp, final String[] args) throws ParseException {
+        return new EmptyAtom();
+    }
+
     public static final Atom doublebox_macro(final TeXParser tp, final String[] args) throws ParseException {
         return new DoubleFramedAtom(new TeXFormula(tp, args[1]).root);
     }

@@ -334,5 +334,7 @@ final class PredefinedCommands {
         MacroInfo.Commands.put("bangle", new PredefMacroInfo(281, 0));
         MacroInfo.Commands.put("brace", new PredefMacroInfo(282, 0));
         MacroInfo.Commands.put("brack", new PredefMacroInfo(283, 0));
+        MacroInfo.Commands.put("enclose", new PredefMacroInfo(284, 2));
+        MacroInfo.Commands.put("require", new PredefMacroInfo(285, 1));
     }
 }
